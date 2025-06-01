@@ -1,0 +1,233 @@
+/* styles.css - Dark Mode */
+
+:root {
+  --primary-color: #63696c; /* Primary accent color */
+  --accent-color: #78909C; /* Secondary accent color */
+  --bg-color: #121212; /* Dark background */
+  --text-color: #ECEFF1; /* White text */
+  --card-bg: #1E1E1E; /* Slightly lighter card background */
+  --primary-dark: #1E1E1E; /* Darker shade for navbars */
+  --border-radius: 8px;
+  --box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.app-container {
+  max-width: 500px;
+  margin: auto;
+  padding: 1rem;
+}
+
+
+
+
+.tabs {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-around;
+  /* background-color: var(--primary-dark); */
+  background-color: var(--bg-color);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  padding: 0.7rem 1rem;
+  width: auto; /* Let content define width */
+  max-width: 300px; /* Adjust as needed */
+  border-radius: 999px; /* Rounded pill shape */
+}
+
+.tab {
+  /* flex-grow: 1; */
+  text-align: center;
+  color: var(--bg-color);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  /* flex: 1; */
+  min-width: 120px; /* Adjust as needed */
+}
+
+.tab.active {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.tab:hover {
+  color: var(--accent-color);
+}
+
+.tab img {
+  display: block;
+  margin: auto;
+  margin-bottom: 4px;
+}
+
+.app-container {
+  padding-bottom: 70px; /* Space for fixed nav */
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+  background: var(--card-bg);
+  padding: 1rem;
+  margin-bottom: 70px; /* Space for fixed nav */
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+input,
+select,
+button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: #3a3a3a;
+  color: white;
+}
+
+buttontwo {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-color);
+  /* background-color: #3a3a3a; */
+  color: white;
+}
+
+#budget-split p {
+  margin: 0.3rem 0;
+}
+
+#log-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+#log-list li {
+  padding: 0.6rem;
+  border-bottom: 1px solid #333;
+  font-size: 0.95rem;
+}
+
+/* Card Style */
+.card {
+  background-color: #2f2f2f;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 0.7rem;
+  box-shadow: var(--box-shadow);
+}
+
+/* Inline FAB Button - beside heading */
+.fab-inline {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%; /* Makes it a perfect circle */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  /* Center the '+' icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.fab-inline:hover {
+  transform: scale(1.1);
+}
+
+/* Modal Overlay */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Modal Content Box */
+.modal-content {
+  background-color: var(--card-bg);
+  margin: 15% auto;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  transform: translateY(20px) scale(0.95);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-content.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Animation */
+@keyframes modal-open {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Close Button */
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: white;
+  text-decoration: none;
+}
+
+/* Add spacing when modal is open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Optional padding to avoid content sticking to bottom nav */
+.card {
+  margin-bottom: 60px;
+}
